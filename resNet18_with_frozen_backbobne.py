@@ -1,13 +1,6 @@
 import os
-import copy
 import torch
 import torch.nn as nn
-
-from torch.utils.data import (
-    DataLoader,
-    random_split
-)
-
 import matplotlib.pyplot as plt
 
 from sklearn.metrics import (
@@ -21,17 +14,15 @@ from sklearn.metrics import (
     ConfusionMatrixDisplay
 )
 
-import numpy as np
 import timm
 from tqdm import tqdm
-import kagglehub
 
 from torch.cuda.amp import (
     autocast,
     GradScaler
 )
 
-from cifake_dataloader_fft import CIFAKEDataset
+from data_loader_fft_lbp import create_dataloaders_fft
 
 # Config
 
@@ -126,57 +117,11 @@ class FrozenResNet18FFT(nn.Module):
 
 # Loading Dataloader
 
-path = kagglehub.dataset_download(
-    "birdy654/cifake-real-and-ai-generated-synthetic-images"
-)
-
-full_dataset = CIFAKEDataset(
-    dataset_path=path,
-    split="train",
+train_loader, val_loader, test_loader = create_dataloaders_fft(
     resolution=RESOLUTION,
-    augment=True
-)
-
-test_dataset = CIFAKEDataset(
-    dataset_path=path,
-    split="test",
-    resolution=RESOLUTION,
-    augment=False
-)
-
-val_size = int(
-    VAL_SPLIT * len(full_dataset)
-)
-
-train_size = len(full_dataset) - val_size
-
-train_dataset, val_dataset = random_split(
-    full_dataset,
-    [train_size, val_size]
-)
-
-train_loader = DataLoader(
-    train_dataset,
     batch_size=BATCH_SIZE,
-    shuffle=True,
-    num_workers=2,
-    pin_memory=True
-)
-
-val_loader = DataLoader(
-    val_dataset,
-    batch_size=BATCH_SIZE,
-    shuffle=False,
-    num_workers=2,
-    pin_memory=True
-)
-
-test_loader = DataLoader(
-    test_dataset,
-    batch_size=BATCH_SIZE,
-    shuffle=False,
-    num_workers=2,
-    pin_memory=True
+    val_split=VAL_SPLIT,
+    num_workers=2
 )
 
 # Intializing Model
