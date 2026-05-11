@@ -254,4 +254,4 @@ By explicitly incorporating FFT and LBP features, the framework forces the model
 
 Swetasree Banik
 
-M.Tech Project / Deepfake Detection Research
+M.Sc Final Project / Deepfake Detection Research
