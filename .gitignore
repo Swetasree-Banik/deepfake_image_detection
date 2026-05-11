@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.pth
+*.pt
+*.png
+*.jpg
+*.jpeg
+.ipynb_checkpoints/
+outputs/
+test_outputs/
