@@ -5,7 +5,7 @@ timm
 
 # Data Processing & Computer Vision
 numpy
-opencv-pythons
+opencv-python
 scikit-image
 scikit-learn
 
