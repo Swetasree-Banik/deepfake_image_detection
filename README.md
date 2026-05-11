@@ -123,10 +123,14 @@ Classes:
 ```text
 deepfake_image_detection/
 │
+├── data_loader.py
+├── data_loader_fft.py
+├── baseline_resNet18.py
 ├── resNet18_fft_lbp.py
-├── cifake_dataloader_fft.py
-├── requirements.txt
+├── resNet18_with-frozen_backbone.py
+├── req.txt
 ├── outputs_two_stage_training/
+├── .gitignore
 └── README.md
 ```
 
@@ -190,6 +194,17 @@ Generated outputs include:
 - Confusion Matrix
 - ROC Curve
 - Best Model Checkpoints
+
+ ## Result for ResNet18 + FFT + LBP:
+ ## Confusion Matrix
+
+![Results](outputs_two_stage_training/confusion_matrix.png)
+
+ ## ROC-Curve
+
+ ![Results](outputs_two_stage_training/roc-curve.png)
+
+
 
 ---
 
