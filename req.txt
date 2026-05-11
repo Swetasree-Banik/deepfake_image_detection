@@ -1,0 +1,17 @@
+# Core Machine Learning
+torch
+torchvision
+timm
+
+# Data Processing & Computer Vision
+numpy
+opencv-pythons
+scikit-image
+scikit-learn
+
+# Visualization & Progress
+matplotlib
+tqdm
+
+# Utilities
+kagglehub
