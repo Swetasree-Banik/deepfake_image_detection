@@ -202,7 +202,7 @@ Generated outputs include:
 
  ## ROC-Curve
 
- ![Results](outputs_two_stage_training/roc-curve.png)
+ ![Results](outputs_two_stage_training/roc_curve.png)
 
 
 
