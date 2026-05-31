@@ -250,6 +250,8 @@ By explicitly incorporating FFT and LBP features, the framework forces the model
 
 ---
 
+P.S: Currently working on generalization of the Model
+
 # 👩‍🔬 Author
 
 Swetasree Banik
